@@ -1,0 +1,212 @@
+/* Dashboard & Application Tracker */
+.dashboard-section {
+  padding: 3.5rem 0 5rem;
+  min-height: calc(100vh - 150px);
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.dashboard-header h1 {
+  font-size: 2.2rem;
+  margin-bottom: 0.35rem;
+}
+
+.lookup-box {
+  display: flex;
+  gap: 0.75rem;
+  max-width: 420px;
+  width: 100%;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 2fr 1.1fr;
+  gap: 2rem;
+}
+
+/* Applications List */
+.loan-card-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+  transition: all var(--transition-normal);
+}
+
+.loan-card-item:hover {
+  border-color: var(--border-hover);
+}
+
+.loan-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+}
+
+.loan-id-badge {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--primary-light);
+  background: rgba(16, 185, 129, 0.1);
+  padding: 0.25rem 0.6rem;
+  border-radius: var(--radius-sm);
+  display: inline-block;
+  margin-bottom: 0.4rem;
+}
+
+.loan-amount-headline {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #FFFFFF;
+}
+
+/* Status Timeline */
+.timeline-stepper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+  margin: 1.75rem 0;
+  position: relative;
+}
+
+.timeline-step {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  position: relative;
+}
+
+.timeline-step::before {
+  content: '';
+  height: 4px;
+  background: #1E293B;
+  border-radius: var(--radius-full);
+  margin-bottom: 0.25rem;
+  transition: background var(--transition-normal);
+}
+
+.timeline-step.completed::before {
+  background: var(--primary);
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.5);
+}
+
+.timeline-step.active::before {
+  background: var(--secondary);
+  box-shadow: 0 0 8px rgba(6, 182, 212, 0.5);
+}
+
+.timeline-step-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.timeline-step.completed .timeline-step-title,
+.timeline-step.active .timeline-step-title {
+  color: #FFFFFF;
+}
+
+.timeline-step-time {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+/* Underwriting Risk Gauge Card */
+.risk-gauge-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  padding: 2rem;
+  text-align: center;
+}
+
+.risk-circle-wrapper {
+  position: relative;
+  width: 170px;
+  height: 170px;
+  margin: 1.5rem auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.risk-circle-svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.risk-score-value {
+  position: absolute;
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #FFFFFF;
+}
+
+.risk-tier-badge {
+  margin-bottom: 1.5rem;
+}
+
+.risk-metrics-list {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 1.5rem;
+  font-size: 0.88rem;
+}
+
+.risk-metric-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.risk-metric-row span:first-child {
+  color: var(--text-muted);
+}
+
+.risk-metric-row span:last-child {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* Empty State */
+.empty-state-box {
+  background: var(--bg-card);
+  border: 1px dashed var(--border-subtle);
+  border-radius: var(--radius-xl);
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.empty-icon {
+  font-size: 3rem;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 960px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+  .dashboard-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+  .lookup-box {
+    max-width: 100%;
+  }
+}

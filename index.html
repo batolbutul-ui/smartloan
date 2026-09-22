@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <title>SmartLoan — Smart, Transparent & Secure Digital Lending</title>
+  <meta name="description" content="Calculate your loan repayment, check affordability, and apply online with transparent APR and bank-grade security. 0 hidden fees." />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- Top Security Advisory Bar -->
+  <aside class="security-alert-bar">
+    <span class="security-badge-icon">Security Advisory</span>
+    <span>
+      Legitimate lenders will <strong>NEVER</strong> ask for your banking PIN, ATM PIN, or account password.
+    </span>
+    <button type="button" class="security-link" data-open-security style="background:none;border:none;font-family:inherit;">
+      Learn How to Stay Safe →
+    </button>
+  </aside>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="app-container nav-content">
+      <div class="brand-logo" data-route-link="home">
+        <div class="logo-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#070B14" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+          </svg>
+        </div>
+        <div>
+          <span class="smart">Smart</span><span class="loan">Loan</span>
+        </div>
+      </div>
+
+      <nav>
+        <ul class="nav-links">
+          <li><button type="button" class="nav-link-btn active" data-route="home">Calculator & Rates</button></li>
+          <li><button type="button" class="nav-link-btn" data-route="apply">Apply Online</button></li>
+          <li><button type="button" class="nav-link-btn" data-route="dashboard">Application Portal</button></li>
+          <li><button type="button" class="nav-link-btn" data-open-security>Security Center</button></li>
+        </ul>
+      </nav>
+
+      <div class="nav-cta">
+        <!-- Live Domain Verification Badge -->
+        <button type="button" class="domain-verifier" id="domain-verifier-btn" title="Click to view security and domain authentication details">
+          <span class="domain-dot"></span>
+          <span id="domain-verifier-text">Domain Verified</span>
+        </button>
+
+        <button type="button" class="btn btn-secondary btn-sm" data-route-link="dashboard">
+          <span>Track Status</span>
+        </button>
+        <button type="button" class="btn btn-primary btn-sm" data-route-link="apply">
+          <span>Apply Now →</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN APP CONTAINER -->
+  <main>
+    
+    <!-- VIEW 1: HOME & LOAN CALCULATOR -->
+    <section id="view-home" class="view-panel">
+      <div class="app-container">
+        
+        <!-- Hero Section -->
+        <div class="hero-section">
+          <div class="hero-grid">
+            
+            <div class="hero-copy">
+              <div class="hero-tag">
+                <span>⚡ Instant Decision Engine</span>
+              </div>
+              <h1 class="hero-title">
+                Borrow Smarter.<br />
+                <span class="text-gradient">Grow Without Limits.</span>
+              </h1>
+              <p class="hero-desc">
+                Access competitive personal and commercial loan rates in minutes. Transparent monthly payments, zero predatory hidden fees, and rapid direct deposit.
+              </p>
+
+              <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.5rem;">
+                <button type="button" class="btn btn-primary btn-lg" data-route-link="apply">
+                  Start Your Application →
+                </button>
+                <button type="button" class="btn btn-secondary btn-lg" data-open-security>
+                  🛡️ Security Guarantee
+                </button>
+              </div>
+
+              <div class="hero-stats">
+                <div class="hero-stat-item">
+                  <span class="stat-value">$250M+</span>
+                  <span class="stat-label">Disbursed</span>
+                </div>
+                <div class="hero-stat-item">
+                  <span class="stat-value">3 Min</span>
+                  <span class="stat-label">Fast Decision</span>
+                </div>
+                <div class="hero-stat-item">
+                  <span class="stat-value">5.9%</span>
+                  <span class="stat-label">Rates Starting</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Interactive Loan Calculator Widget -->
+            <div class="calc-card card-glowing">
+              <div class="calc-header">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.25rem;">
+                  <span class="section-tag" style="margin-bottom: 0;">Loan Estimator</span>
+                  <span id="calc-apr-badge" class="badge badge-success">8.5% APR</span>
+                </div>
+                <h3>Customize Your Loan</h3>
+                <p style="font-size: 0.85rem; color: var(--text-muted);">Select your loan product, amount, and term</p>
+              </div>
+
+              <!-- Product Selector Tabs -->
+              <div class="calc-types-grid">
+                <button type="button" class="calc-type-btn active" data-type="personal">Personal</button>
+                <button type="button" class="calc-type-btn" data-type="business">Business</button>
+                <button type="button" class="calc-type-btn" data-type="auto">Auto</button>
+                <button type="button" class="calc-type-btn" data-type="home">Home</button>
+              </div>
+
+              <!-- Amount Slider -->
+              <div class="calc-slider-group">
+                <div class="calc-slider-header">
+                  <span class="calc-slider-label">Loan Amount:</span>
+                  <span id="calc-amount-display" class="calc-slider-value">$15,000</span>
+                </div>
+                <input id="calc-amount-slider" class="range-slider" type="range" min="1000" max="50000" step="500" value="15000" />
+                <div class="calc-presets">
+                  <button type="button" class="preset-chip" data-amount="5000">$5k</button>
+                  <button type="button" class="preset-chip" data-amount="15000">$15k</button>
+                  <button type="button" class="preset-chip" data-amount="30000">$30k</button>
+                  <button type="button" class="preset-chip" data-amount="50000">$50k</button>
+                </div>
+              </div>
+
+              <!-- Tenure Slider -->
+              <div class="calc-slider-group">
+                <div class="calc-slider-header">
+                  <span class="calc-slider-label">Repayment Term:</span>
+                  <span id="calc-tenure-display" class="calc-slider-value">24 Months</span>
+                </div>
+                <input id="calc-tenure-slider" class="range-slider" type="range" min="6" max="60" step="6" value="24" />
+              </div>
+
+              <!-- Real-time Monthly Result Box -->
+              <div class="calc-result-box">
+                <div class="calc-monthly-display">
+                  <span class="monthly-label">Estimated Monthly Installment</span>
+                  <span id="calc-monthly-val" class="monthly-amount">$681.93</span>
+                </div>
+                <div class="calc-meta-metrics">
+                  <div class="meta-metric-item">
+                    <span class="meta-label">Total Interest:</span>
+                    <span id="calc-interest-val" class="meta-val">$1,366.32</span>
+                  </div>
+                  <div class="meta-metric-item">
+                    <span class="meta-label">Total Repayment:</span>
+                    <span id="calc-total-val" class="meta-val">$16,366.32</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Calculator Actions -->
+              <div style="display: flex; gap: 0.75rem;">
+                <button type="button" id="calc-apply-btn" class="btn btn-primary btn-block">
+                  Apply for this Loan →
+                </button>
+                <button type="button" id="calc-view-amort-btn" class="btn btn-secondary" title="View Month-by-Month Amortization Breakdown">
+                  Schedule 📊
+                </button>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Security & Anti-Phishing Banner -->
+        <div style="margin: 2rem 0; background: rgba(16, 185, 129, 0.06); border: 1px solid rgba(16, 185, 129, 0.25); border-radius: var(--radius-xl); padding: 1.75rem 2rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem;">
+          <div style="display: flex; gap: 1.25rem; align-items: center;">
+            <div style="font-size: 2.25rem;">🔒</div>
+            <div>
+              <h4 style="font-size: 1.15rem; margin-bottom: 0.25rem;">Our Consumer Protection Promise</h4>
+              <p style="font-size: 0.88rem; max-width: 650px;">
+                Be aware of fraudulent loan websites asking for bank PINs or ATM credentials. SmartLoan uses standard encrypted banking rails and will <strong>never</strong> ask for your online banking password or PIN.
+              </p>
+            </div>
+          </div>
+          <button type="button" class="btn btn-outline btn-sm" data-open-security>Read Security Guidelines</button>
+        </div>
+
+        <!-- Features Grid -->
+        <div class="features-section">
+          <div class="section-header">
+            <span class="section-tag">Why Choose SmartLoan</span>
+            <h2 class="section-title">Financing Built for Modern Needs</h2>
+            <p>We eliminated the paperwork, high hidden charges, and opaque bank underwriting to give you a transparent lending platform.</p>
+          </div>
+
+          <div class="features-grid">
+            <div class="feature-card">
+              <div class="feature-icon-wrapper">⚡</div>
+              <h3 style="margin-bottom: 0.5rem; font-size: 1.2rem;">Instant Pre-Approval</h3>
+              <p>Our algorithmic underwriting reviews your details within seconds with zero hard impact on your credit score during pre-check.</p>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon-wrapper">💎</div>
+              <h3 style="margin-bottom: 0.5rem; font-size: 1.2rem;">0% Hidden Charges</h3>
+              <p>No early repayment penalties, no surprise administrative fees. What you see on your repayment schedule is exactly what you pay.</p>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon-wrapper">🛡️</div>
+              <h3 style="margin-bottom: 0.5rem; font-size: 1.2rem;">Bank-Grade AES Encryption</h3>
+              <p>Your financial documents and personal records are encrypted with 256-bit TLS/AES standards conforming to strict SOC2 and ISO compliance.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="faq-section">
+          <div class="section-header">
+            <span class="section-tag">Frequently Asked Questions</span>
+            <h2 class="section-title">Common Questions About SmartLoan</h2>
+            <p>Everything you need to know about loan eligibility, security, and disbursements.</p>
+          </div>
+
+          <div class="faq-list">
+            <div class="faq-item active">
+              <button type="button" class="faq-question">
+                <span>Will checking my loan rate affect my credit score?</span>
+                <span class="faq-chevron">▼</span>
+              </button>
+              <div class="faq-answer">
+                <p>No. When you use our loan calculator and submit an initial pre-qualification inquiry, we only perform a soft credit pull that has zero impact on your credit score. A standard credit bureau inquiry only occurs if you accept an offer and proceed to final funding.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button type="button" class="faq-question">
+                <span>How quickly are approved loan funds deposited?</span>
+                <span class="faq-chevron">▼</span>
+              </button>
+              <div class="faq-answer">
+                <p>Once your application is verified and digitally signed, funds are typically disbursed via Automated Clearing House (ACH) or direct wire within 24 to 48 business hours.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button type="button" class="faq-question">
+                <span>Why does SmartLoan never ask for my banking PIN?</span>
+                <span class="faq-chevron">▼</span>
+              </button>
+              <div class="faq-answer">
+                <p>Legitimate financial institutions and licensed lenders only require your routing number and checking account number to initiate direct deposit. Asking for a 4-digit PIN, ATM password, or online banking login credentials is a hallmark indicator of phishing scams.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button type="button" class="faq-question">
+                <span>Can I pay off my loan early without penalties?</span>
+                <span class="faq-chevron">▼</span>
+              </button>
+              <div class="faq-answer">
+                <p>Yes! SmartLoan has a strict 0% prepayment penalty policy. You can pay off your principal balance at any point in time to save on remaining interest with zero fees.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- VIEW 2: 4-STEP APPLICATION WIZARD -->
+    <section id="view-apply" class="view-panel wizard-section" style="display: none;">
+      <div class="app-container wizard-container">
+        
+        <!-- Interactive Progress Stepper -->
+        <div class="stepper-wrapper">
+          <div class="stepper-track">
+            <div id="stepper-progress-fill" class="stepper-progress-fill" style="width: 0%;"></div>
+            
+            <div class="step-node active" data-step="1">
+              <div class="step-circle">1</div>
+              <span class="step-label">Personal Info</span>
+            </div>
+
+            <div class="step-node" data-step="2">
+              <div class="step-circle">2</div>
+              <span class="step-label">Financials</span>
+            </div>
+
+            <div class="step-node" data-step="3">
+              <div class="step-circle">3</div>
+              <span class="step-label">Verification</span>
+            </div>
+
+            <div class="step-node" data-step="4">
+              <div class="step-circle">4</div>
+              <span class="step-label">Review & Submit</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Wizard Card Form -->
+        <div class="wizard-card card-glowing">
+          <form id="loan-application-form" novalidate>
+            
+            <!-- Hidden Fields for Presets -->
+            <input type="hidden" id="wiz-amount" value="15000" />
+            <input type="hidden" id="wiz-tenure" value="24" />
+            <input type="hidden" id="wiz-type" value="personal" />
+
+            <!-- STEP 1: Personal & Contact Info -->
+            <div class="step-content active" data-step="1">
+              <div class="step-header">
+                <h2>Step 1: Personal & Contact Information</h2>
+                <p>Provide your legal personal information as it appears on your government identification.</p>
+              </div>
+
+              <div class="form-grid-2">
+                <div class="form-group">
+                  <label class="form-label" for="wiz-fullname">Full Legal Name *</label>
+                  <input type="text" id="wiz-fullname" class="form-control" placeholder="e.g. Jordan Mitchell" required data-error-msg="Please enter your full legal name" />
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="wiz-email">Email Address *</label>
+                  <input type="email" id="wiz-email" class="form-control" placeholder="jordan@example.com" required data-error-msg="Please provide a valid email" />
+                </div>
+              </div>
+
+              <div class="form-grid-2">
+                <div class="form-group">
+                  <label class="form-label" for="wiz-phone">Mobile Phone Number *</label>
+                  <input type="tel" id="wiz-phone" class="form-control" placeholder="(555) 000-0000" required data-error-msg="Phone number is required for SMS updates" />
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="wiz-dob">Date of Birth *</label>
+                  <input type="date" id="wiz-dob" class="form-control" required data-error-msg="Applicants must be at least 18 years old" />
+                </div>
+              </div>
+
+              <div class="form-grid-2">
+                <div class="form-group">
+                  <label class="form-label" for="wiz-id-num">National ID / Social Security (Masked) *</label>
+                  <input type="text" id="wiz-id-num" class="form-control" placeholder="•••-••-1234" required data-error-msg="Identity number required for verification" />
+                  <span class="form-hint">Encrypted via 256-bit AES. Never shared.</span>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="wiz-address">Residential Address *</label>
+                  <input type="text" id="wiz-address" class="form-control" placeholder="Street Address, City, Zip" required data-error-msg="Please enter your residential address" />
+                </div>
+              </div>
+            </div>
+
+            <!-- STEP 2: Employment & Income -->
+            <div class="step-content" data-step="2">
+              <div class="step-header">
+                <h2>Step 2: Financial & Employment Profile</h2>
+                <p>Helps our underwriting team assess your loan affordability and repayment terms.</p>
+              </div>
+
+              <div class="form-grid-2">
+                <div class="form-group">
+                  <label class="form-label" for="wiz-emp-status">Employment Status *</label>
+                  <select id="wiz-emp-status" class="form-control" required>
+                    <option value="Employed Full-Time">Employed Full-Time</option>
+                    <option value="Self-Employed">Self-Employed / Business Owner</option>
+                    <option value="Contract / Freelance">Contract / Freelance</option>
+                    <option value="Retired">Retired / Pension</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="wiz-employer">Employer or Company Name *</label>
+                  <input type="text" id="wiz-employer" class="form-control" placeholder="e.g. Acme Corporation" required data-error-msg="Please enter your employer or business name" />
+                </div>
+              </div>
+
+              <div class="form-grid-2">
+                <div class="form-group">
+                  <label class="form-label" for="wiz-income">Monthly Net Income (USD) *</label>
+                  <input type="number" id="wiz-income" class="form-control" placeholder="e.g. 5500" min="500" required data-error-msg="Monthly income is required" />
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="wiz-debt">Existing Monthly Debt Payments (USD)</label>
+                  <input type="number" id="wiz-debt" class="form-control" placeholder="e.g. 450 (Rent, Credit cards)" value="0" />
+                  <span class="form-hint">Used to calculate your Debt-to-Income (DTI) ratio</span>
+                </div>
+              </div>
+
+              <!-- Notice on Banking Details (Legitimate vs Phishing) -->
+              <div class="banking-trust-callout">
+                <div class="trust-icon">ℹ️</div>
+                <div>
+                  <strong>Legitimate Disbursement Verification</strong>
+                  <p>
+                    We only ask for your Bank Name and Account Number so loan funds can be deposited directly into your checking account upon approval. We will <strong>NEVER</strong> prompt for your banking PIN, ATM PIN, or login password.
+                  </p>
+                </div>
+              </div>
+
+              <div class="form-grid-2">
+                <div class="form-group">
+                  <label class="form-label" for="wiz-bank-name">Bank Name *</label>
+                  <input type="text" id="wiz-bank-name" class="form-control" placeholder="e.g. Chase, Bank of America, CABS" required data-error-msg="Please specify your bank" />
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="wiz-account-num">Checking Account Number *</label>
+                  <input type="text" id="wiz-account-num" class="form-control" placeholder="e.g. 104829104" required data-error-msg="Account number is required for disbursement" />
+                  <span class="form-hint">Only used for ACH direct deposit if approved.</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- STEP 3: Verification & Documents -->
+            <div class="step-content" data-step="3">
+              <div class="step-header">
+                <h2>Step 3: Purpose & Verification Documents</h2>
+                <p>Upload supporting documentation for instant automated KYC compliance.</p>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="wiz-purpose">Primary Loan Purpose *</label>
+                <select id="wiz-purpose" class="form-control" required>
+                  <option value="Debt Consolidation">Debt Consolidation</option>
+                  <option value="Home Improvement & Renovation">Home Improvement & Renovation</option>
+                  <option value="Business Inventory / Expansion">Business Inventory / Expansion</option>
+                  <option value="Vehicle Purchase">Vehicle Purchase</option>
+                  <option value="Medical / Emergency Expenses">Medical / Emergency Expenses</option>
+                  <option value="Major Life Event">Major Life Event</option>
+                </select>
+              </div>
+
+              <div class="upload-dropzone" id="upload-dropzone">
+                <div class="upload-icon">📁</div>
+                <h4>Drag & Drop Verification Documents</h4>
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0.25rem 0 1rem;">
+                  Upload Government ID (Passport / Driver's License) or Recent Payslip / Bank Statement (PDF, JPG, PNG up to 10MB)
+                </p>
+                <button type="button" class="btn btn-secondary btn-sm">Browse Files</button>
+                <input type="file" id="document-upload-input" multiple accept=".pdf,.png,.jpg,.jpeg" style="display: none;" />
+              </div>
+
+              <div id="uploaded-files-list" class="uploaded-files-list"></div>
+            </div>
+
+            <!-- STEP 4: Review, Affordability & Submission -->
+            <div class="step-content" data-step="4">
+              <div class="step-header">
+                <h2>Step 4: Review & Final Confirmation</h2>
+                <p>Review your loan details, affordability assessment, and provide digital signature.</p>
+              </div>
+
+              <!-- Loan Terms Breakdown Box -->
+              <div class="review-summary-box">
+                <div class="review-grid">
+                  <div class="review-item">
+                    <span class="review-label">Requested Principal</span>
+                    <span id="rev-loan-amount" class="review-value">$15,000</span>
+                  </div>
+                  <div class="review-item">
+                    <span class="review-label">Repayment Term</span>
+                    <span id="rev-loan-tenure" class="review-value">24 Months</span>
+                  </div>
+                  <div class="review-item">
+                    <span class="review-label">Annual Rate (APR)</span>
+                    <span id="rev-loan-rate" class="review-value">8.5% APR</span>
+                  </div>
+                  <div class="review-item">
+                    <span class="review-label">Estimated Monthly Payment</span>
+                    <span id="rev-monthly-payment" class="review-value" style="color: var(--primary-light);">$681.93</span>
+                  </div>
+                  <div class="review-item">
+                    <span class="review-label">Total Repayment Amount</span>
+                    <span id="rev-total-repayment" class="review-value">$16,366.32</span>
+                  </div>
+                  <div class="review-item">
+                    <span class="review-label">Applicant Name</span>
+                    <span id="rev-name" class="review-value">Applicant</span>
+                  </div>
+                </div>
+
+                <!-- DTI Indicator -->
+                <div class="dti-meter-box">
+                  <div>
+                    <span style="font-size: 0.8rem; color: var(--text-muted); display: block;">Debt-to-Income (DTI) Ratio</span>
+                    <span id="rev-dti-badge" class="badge badge-success">22% (Optimal)</span>
+                  </div>
+                  <p id="rev-dti-desc" style="font-size: 0.82rem; max-width: 400px; text-align: right; margin: 0;">
+                    Excellent debt ratio. Fast-track eligible.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Legal Consent & Digital Signature -->
+              <div class="consent-box">
+                <label class="custom-checkbox">
+                  <input type="checkbox" id="wiz-consent-credit" required data-error-msg="Consent is required to proceed" />
+                  <span>I authorize SmartLoan to run an encrypted automated credit bureau verification and KYC compliance check.</span>
+                </label>
+
+                <label class="custom-checkbox">
+                  <input type="checkbox" id="wiz-consent-terms" required data-error-msg="Please accept terms and conditions" />
+                  <span>I confirm that all provided information is accurate and agree to the <a href="#" style="color: var(--primary-light); text-decoration: underline;">Loan Terms & Conditions</a> and <a href="#" style="color: var(--primary-light); text-decoration: underline;">Privacy Policy</a>.</span>
+                </label>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="wiz-signature">Digital Signature (Type Full Name) *</label>
+                <input type="text" id="wiz-signature" class="form-control" placeholder="Type your full legal name to sign digitally" required data-error-msg="Digital signature required" />
+                <span class="form-hint">Legally binding electronic signature under the ESIGN Act.</span>
+              </div>
+            </div>
+
+            <!-- Wizard Navigation Action Buttons -->
+            <div class="wizard-actions">
+              <button type="button" id="wizard-prev-btn" class="btn btn-secondary" style="display: none;">
+                ← Previous Step
+              </button>
+              <div></div>
+              <button type="button" id="wizard-next-btn" class="btn btn-primary">
+                Next Step →
+              </button>
+              <button type="submit" id="wizard-submit-btn" class="btn btn-primary pulse-glow" style="display: none;">
+                Submit Loan Application ✓
+              </button>
+            </div>
+
+          </form>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- VIEW 3: APPLICANT DASHBOARD & STATUS TRACKER -->
+    <section id="view-dashboard" class="view-panel dashboard-section" style="display: none;">
+      <div class="app-container">
+        
+        <div class="dashboard-header">
+          <div>
+            <h1>Application Tracker & Portal</h1>
+            <p>Monitor your active loan status, underwriting progress, and disbursement timelines.</p>
+          </div>
+
+          <div class="lookup-box">
+            <input type="text" id="dashboard-search-input" class="form-control" placeholder="Enter Ref ID (e.g. SL-89241)" />
+            <button type="button" id="dashboard-search-btn" class="btn btn-secondary">Search</button>
+          </div>
+        </div>
+
+        <div class="dashboard-grid">
+          
+          <!-- Left Column: Applications List -->
+          <div id="dashboard-applications-container">
+            <!-- Dynamically populated by dashboard.js -->
+          </div>
+
+          <!-- Right Column: AI Underwriting Score Sidebar -->
+          <div id="dashboard-risk-sidebar">
+            <!-- Dynamically populated by dashboard.js -->
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- AMORTIZATION SCHEDULE MODAL -->
+  <div id="amort-modal" class="modal-backdrop">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div>
+          <h3 style="font-size: 1.25rem;">Amortization Schedule Breakdown</h3>
+          <p style="font-size: 0.82rem; color: var(--text-muted); margin: 0;">Month-by-month principal vs interest repayment trajectory</p>
+        </div>
+        <button type="button" id="amort-modal-close" class="modal-close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="amort-table-wrapper">
+          <table class="amort-table">
+            <thead>
+              <tr>
+                <th>Period</th>
+                <th>Monthly EMI</th>
+                <th>Principal</th>
+                <th>Interest</th>
+                <th>Remaining Balance</th>
+              </tr>
+            </thead>
+            <tbody id="amort-modal-table-body">
+              <!-- Dynamically populated -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ANTI-PHISHING SECURITY CENTER MODAL -->
+  <div id="security-modal" class="modal-backdrop">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
+          <span style="font-size: 1.5rem;">🛡️</span>
+          <div>
+            <h3 style="font-size: 1.25rem;">Fintech Security & Scam Prevention</h3>
+            <p style="font-size: 0.82rem; color: var(--text-muted); margin: 0;">How to identify legitimate lending platforms vs. phishing scams</p>
+          </div>
+        </div>
+        <button type="button" id="security-modal-close" class="modal-close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div style="background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.3); border-radius: var(--radius-md); padding: 1rem 1.25rem; margin-bottom: 1.5rem;">
+          <h4 style="color: #F87171; font-size: 0.95rem; margin-bottom: 0.35rem;">⚠️ Red Flags of Loan Scams & Phishing Websites</h4>
+          <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5;">
+            Fraudulent websites often lure victims with promises of instant loans, then ask for a <strong>4-digit banking PIN</strong>, ATM PIN, or online banking password under the guise of "verifying internet banking." They then steal these credentials to drain victim accounts.
+          </p>
+        </div>
+
+        <h4 style="margin-bottom: 0.75rem; font-size: 1rem;">Legitimate vs. Fraudulent Lenders</h4>
+        <div style="border: 1px solid var(--border-subtle); border-radius: var(--radius-md); overflow: hidden; margin-bottom: 1.5rem;">
+          <table class="amort-table" style="font-size: 0.84rem;">
+            <thead>
+              <tr>
+                <th>Aspect</th>
+                <th>Legitimate Lender (SmartLoan)</th>
+                <th style="color: #F87171;">Phishing Website</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Banking Credentials</strong></td>
+                <td style="color: var(--primary-light);">Account # only for deposit</td>
+                <td style="color: #F87171;">Asks for Banking PIN / Password</td>
+              </tr>
+              <tr>
+                <td><strong>Disclosures</strong></td>
+                <td style="color: var(--primary-light);">Clear APR and repayment schedule</td>
+                <td style="color: #F87171;">Hidden fees, no terms breakdown</td>
+              </tr>
+              <tr>
+                <td><strong>Data Transmission</strong></td>
+                <td style="color: var(--primary-light);">Encrypted SOC-2 API backend</td>
+                <td style="color: #F87171;">Exfiltrates to Telegram / Webhooks</td>
+              </tr>
+              <tr>
+                <td><strong>Credit Verification</strong></td>
+                <td style="color: var(--primary-light);">Regulated Credit Bureau / KYC</td>
+                <td style="color: #F87171;">Fake approval without underwriting</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div style="background: rgba(16, 185, 129, 0.06); border: 1px solid rgba(16, 185, 129, 0.25); border-radius: var(--radius-md); padding: 1rem 1.25rem;">
+          <h4 style="color: var(--primary-light); font-size: 0.95rem; margin-bottom: 0.25rem;">SmartLoan Security Pledge</h4>
+          <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 0;">
+            SmartLoan will never call, text, or email you requesting your one-time passwords (OTP) or banking credentials. When applying, ensure the browser address bar matches your verified official domain.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- FOOTER -->
+  <footer class="app-footer">
+    <div class="app-container">
+      <div class="footer-grid">
+        
+        <div>
+          <div class="brand-logo" style="margin-bottom: 1rem;">
+            <div class="logo-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#070B14" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+              </svg>
+            </div>
+            <div>
+              <span class="smart">Smart</span><span class="loan">Loan</span>
+            </div>
+          </div>
+          <p style="font-size: 0.85rem; line-height: 1.6; max-width: 320px;">
+            Empowering consumers and small businesses with fair, transparent, and algorithmic digital lending solutions.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Loan Products</h4>
+          <ul>
+            <li><a href="#home">Personal Loans</a></li>
+            <li><a href="#home">Business Loans</a></li>
+            <li><a href="#home">Auto Financing</a></li>
+            <li><a href="#home">Home Improvement</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Platform</h4>
+          <ul>
+            <li><a href="#apply">Apply Online</a></li>
+            <li><a href="#dashboard">Track Application</a></li>
+            <li><a href="#" data-open-security>Security Center</a></li>
+            <li><a href="#" data-open-security>Anti-Phishing Guide</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Trust & Safety</h4>
+          <p style="font-size: 0.82rem; margin-bottom: 0.75rem;">
+            256-Bit TLS Encryption • Regulated Digital Lending Protocol • SOC 2 Type II Certified
+          </p>
+          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+            <span class="badge badge-success">✓ FDIC Insured Partner Rails</span>
+            <span class="badge badge-info">✓ SSL Secured</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-compliance-note">
+        <strong>APR & Transparency Disclosure:</strong> Annual Percentage Rates (APR) range from 5.90% to 19.99% based on creditworthiness, loan tenure, and debt-to-income profile. For example, a $15,000 personal loan with a 24-month term at 8.5% APR results in 24 monthly payments of $681.93, with a total repayment of $16,366.32. There are no origination fees or prepayment penalties. All loans are subject to credit approval and identity verification.
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 SmartLoan Technologies Inc. All rights reserved.</div>
+        <div style="display: flex; gap: 1.5rem;">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#" data-open-security>Security Disclosure</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="/src/js/main.js"></script>
+</body>
+</html>
