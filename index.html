@@ -14,17 +14,6 @@
 </head>
 <body>
 
-  <!-- Top Security Advisory Bar -->
-  <aside class="security-alert-bar">
-    <span class="security-badge-icon">Security Advisory</span>
-    <span>
-      Legitimate lenders will <strong>NEVER</strong> ask for your banking PIN, ATM PIN, or account password.
-    </span>
-    <button type="button" class="security-link" data-open-security style="background:none;border:none;font-family:inherit;">
-      Learn How to Stay Safe →
-    </button>
-  </aside>
-
   <!-- Navigation Bar -->
   <header class="navbar">
     <div class="app-container nav-content">
@@ -44,17 +33,11 @@
           <li><button type="button" class="nav-link-btn active" data-route="home">Calculator & Rates</button></li>
           <li><button type="button" class="nav-link-btn" data-route="apply">Apply Online</button></li>
           <li><button type="button" class="nav-link-btn" data-route="dashboard">Application Portal</button></li>
-          <li><button type="button" class="nav-link-btn" data-open-security>Security Center</button></li>
+          <li><button type="button" class="nav-link-btn" data-open-security>Security Standards</button></li>
         </ul>
       </nav>
 
       <div class="nav-cta">
-        <!-- Live Domain Verification Badge -->
-        <button type="button" class="domain-verifier" id="domain-verifier-btn" title="Click to view security and domain authentication details">
-          <span class="domain-dot"></span>
-          <span id="domain-verifier-text">Domain Verified</span>
-        </button>
-
         <button type="button" class="btn btn-secondary btn-sm" data-route-link="dashboard">
           <span>Track Status</span>
         </button>
@@ -77,38 +60,38 @@
           <div class="hero-grid">
             
             <div class="hero-copy">
-              <div class="hero-tag">
-                <span>⚡ Instant Decision Engine</span>
-              </div>
               <h1 class="hero-title">
                 Borrow Smarter.<br />
                 <span class="text-gradient">Grow Without Limits.</span>
               </h1>
               <p class="hero-desc">
-                Access competitive personal and commercial loan rates in minutes. Transparent monthly payments, zero predatory hidden fees, and rapid direct deposit.
+                Access transparent personal and commercial financing in minutes. Fixed monthly payments, automated pre-qualification, zero origination fees, and rapid direct deposit.
               </p>
 
               <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.5rem;">
                 <button type="button" class="btn btn-primary btn-lg" data-route-link="apply">
                   Start Your Application →
                 </button>
-                <button type="button" class="btn btn-secondary btn-lg" data-open-security>
-                  🛡️ Security Guarantee
+                <button type="button" class="btn btn-secondary btn-lg" data-open-security style="display: inline-flex; align-items: center; gap: 0.5rem;">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                  </svg>
+                  Security Standards
                 </button>
               </div>
 
               <div class="hero-stats">
                 <div class="hero-stat-item">
                   <span class="stat-value">$250M+</span>
-                  <span class="stat-label">Disbursed</span>
+                  <span class="stat-label">Capital Disbursed</span>
                 </div>
                 <div class="hero-stat-item">
-                  <span class="stat-value">3 Min</span>
-                  <span class="stat-label">Fast Decision</span>
+                  <span class="stat-value">&lt; 3 Min</span>
+                  <span class="stat-label">Pre-Qualification</span>
                 </div>
                 <div class="hero-stat-item">
                   <span class="stat-value">5.9%</span>
-                  <span class="stat-label">Rates Starting</span>
+                  <span class="stat-label">Starting APR</span>
                 </div>
               </div>
             </div>
@@ -179,8 +162,13 @@
                 <button type="button" id="calc-apply-btn" class="btn btn-primary btn-block">
                   Apply for this Loan →
                 </button>
-                <button type="button" id="calc-view-amort-btn" class="btn btn-secondary" title="View Month-by-Month Amortization Breakdown">
-                  Schedule 📊
+                <button type="button" id="calc-view-amort-btn" class="btn btn-secondary" title="View Month-by-Month Amortization Breakdown" style="display: inline-flex; align-items: center; gap: 0.5rem;">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="20" x2="18" y2="10"/>
+                    <line x1="12" y1="20" x2="12" y2="4"/>
+                    <line x1="6" y1="20" x2="6" y2="14"/>
+                  </svg>
+                  Schedule
                 </button>
               </div>
 
@@ -189,45 +177,64 @@
           </div>
         </div>
 
-        <!-- Security & Anti-Phishing Banner -->
-        <div style="margin: 2rem 0; background: rgba(16, 185, 129, 0.06); border: 1px solid rgba(16, 185, 129, 0.25); border-radius: var(--radius-xl); padding: 1.75rem 2rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem;">
-          <div style="display: flex; gap: 1.25rem; align-items: center;">
-            <div style="font-size: 2.25rem;">🔒</div>
+        <!-- Institutional Trust & Security Guarantee -->
+        <div class="trust-banner">
+          <div class="trust-banner-content">
+            <div class="trust-icon-box">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                <path d="m9 12 2 2 4-4"/>
+              </svg>
+            </div>
             <div>
-              <h4 style="font-size: 1.15rem; margin-bottom: 0.25rem;">Our Consumer Protection Promise</h4>
-              <p style="font-size: 0.88rem; max-width: 650px;">
-                Be aware of fraudulent loan websites asking for bank PINs or ATM credentials. SmartLoan uses standard encrypted banking rails and will <strong>never</strong> ask for your online banking password or PIN.
+              <h4 class="trust-banner-title">Bank-Grade Consumer Protection</h4>
+              <p class="trust-banner-text">
+                Direct ACH disbursement via regulated FDIC-insured partner rails. 256-bit AES cryptographic encryption protects your personal records and financial disclosures.
               </p>
             </div>
           </div>
-          <button type="button" class="btn btn-outline btn-sm" data-open-security>Read Security Guidelines</button>
+          <button type="button" class="btn btn-outline btn-sm" data-open-security>Security Standards</button>
         </div>
 
         <!-- Features Grid -->
         <div class="features-section">
           <div class="section-header">
-            <span class="section-tag">Why Choose SmartLoan</span>
-            <h2 class="section-title">Financing Built for Modern Needs</h2>
-            <p>We eliminated the paperwork, high hidden charges, and opaque bank underwriting to give you a transparent lending platform.</p>
+            <span class="section-tag">Platform Features</span>
+            <h2 class="section-title">Financing Built for Modern Standards</h2>
+            <p>We eliminated unnecessary friction, hidden administration costs, and opaque bank underwriting to give you a transparent lending platform.</p>
           </div>
 
           <div class="features-grid">
             <div class="feature-card">
-              <div class="feature-icon-wrapper">⚡</div>
-              <h3 style="margin-bottom: 0.5rem; font-size: 1.2rem;">Instant Pre-Approval</h3>
-              <p>Our algorithmic underwriting reviews your details within seconds with zero hard impact on your credit score during pre-check.</p>
+              <div class="feature-icon-wrapper">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                </svg>
+              </div>
+              <h3 style="margin-bottom: 0.5rem; font-size: 1.2rem;">Automated Pre-Approval</h3>
+              <p>Algorithmic underwriting assesses eligibility in under 3 minutes with zero hard inquiry impact on your credit score during pre-qualification.</p>
             </div>
 
             <div class="feature-card">
-              <div class="feature-icon-wrapper">💎</div>
-              <h3 style="margin-bottom: 0.5rem; font-size: 1.2rem;">0% Hidden Charges</h3>
-              <p>No early repayment penalties, no surprise administrative fees. What you see on your repayment schedule is exactly what you pay.</p>
+              <div class="feature-icon-wrapper">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"/>
+                  <path d="m9 12 2 2 4-4"/>
+                </svg>
+              </div>
+              <h3 style="margin-bottom: 0.5rem; font-size: 1.2rem;">100% Fee Transparency</h3>
+              <p>Strict zero-hidden-fee guarantee. No prepayment penalties, no application fees. What you see on your repayment schedule is exactly what you pay.</p>
             </div>
 
             <div class="feature-card">
-              <div class="feature-icon-wrapper">🛡️</div>
-              <h3 style="margin-bottom: 0.5rem; font-size: 1.2rem;">Bank-Grade AES Encryption</h3>
-              <p>Your financial documents and personal records are encrypted with 256-bit TLS/AES standards conforming to strict SOC2 and ISO compliance.</p>
+              <div class="feature-icon-wrapper">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect width="18" height="11" x="3" y="11" rx="2" ry="2"/>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                </svg>
+              </div>
+              <h3 style="margin-bottom: 0.5rem; font-size: 1.2rem;">SOC 2 Type II & AES-256</h3>
+              <p>Enterprise data security standards. Application data and verification documents are fully encrypted at rest and in transit via TLS 1.3.</p>
             </div>
           </div>
         </div>
@@ -263,11 +270,11 @@
 
             <div class="faq-item">
               <button type="button" class="faq-question">
-                <span>Why does SmartLoan never ask for my banking PIN?</span>
+                <span>What information is required for loan disbursement?</span>
                 <span class="faq-chevron">▼</span>
               </button>
               <div class="faq-answer">
-                <p>Legitimate financial institutions and licensed lenders only require your routing number and checking account number to initiate direct deposit. Asking for a 4-digit PIN, ATM password, or online banking login credentials is a hallmark indicator of phishing scams.</p>
+                <p>We only require your checking account number and bank routing number to initiate direct deposit. SmartLoan operates through standard banking clearing rails and will never request your online banking passwords, ATM PINs, or confidential security keys.</p>
               </div>
             </div>
 
@@ -409,13 +416,19 @@
                 </div>
               </div>
 
-              <!-- Notice on Banking Details (Legitimate vs Phishing) -->
+              <!-- Banking Direct Deposit Rail Notice -->
               <div class="banking-trust-callout">
-                <div class="trust-icon">ℹ️</div>
+                <div class="trust-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"/>
+                    <line x1="12" y1="16" x2="12" y2="12"/>
+                    <line x1="12" y1="8" x2="12.01" y2="8"/>
+                  </svg>
+                </div>
                 <div>
-                  <strong>Legitimate Disbursement Verification</strong>
+                  <strong>Automated Direct Deposit Rails</strong>
                   <p>
-                    We only ask for your Bank Name and Account Number so loan funds can be deposited directly into your checking account upon approval. We will <strong>NEVER</strong> prompt for your banking PIN, ATM PIN, or login password.
+                    Your checking account and routing details are used exclusively to disburse funds upon approval via direct ACH. SmartLoan will never prompt for your banking passwords or confidential PINs.
                   </p>
                 </div>
               </div>
@@ -423,13 +436,13 @@
               <div class="form-grid-2">
                 <div class="form-group">
                   <label class="form-label" for="wiz-bank-name">Bank Name *</label>
-                  <input type="text" id="wiz-bank-name" class="form-control" placeholder="e.g. Chase, Bank of America, CABS" required data-error-msg="Please specify your bank" />
+                  <input type="text" id="wiz-bank-name" class="form-control" placeholder="e.g. Chase, Bank of America, Wells Fargo" required data-error-msg="Please specify your bank" />
                 </div>
 
                 <div class="form-group">
                   <label class="form-label" for="wiz-account-num">Checking Account Number *</label>
                   <input type="text" id="wiz-account-num" class="form-control" placeholder="e.g. 104829104" required data-error-msg="Account number is required for disbursement" />
-                  <span class="form-hint">Only used for ACH direct deposit if approved.</span>
+                  <span class="form-hint">Direct ACH deposit rails only. Fully encrypted.</span>
                 </div>
               </div>
             </div>
@@ -454,10 +467,16 @@
               </div>
 
               <div class="upload-dropzone" id="upload-dropzone">
-                <div class="upload-icon">📁</div>
+                <div class="upload-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                    <polyline points="17 8 12 3 7 8"/>
+                    <line x1="12" y1="3" x2="12" y2="15"/>
+                  </svg>
+                </div>
                 <h4>Drag & Drop Verification Documents</h4>
                 <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0.25rem 0 1rem;">
-                  Upload Government ID (Passport / Driver's License) or Recent Payslip / Bank Statement (PDF, JPG, PNG up to 10MB)
+                  Government ID (Passport / Driver's License) or recent utility bill / payslip (PDF, JPG, PNG up to 10MB)
                 </p>
                 <button type="button" class="btn btn-secondary btn-sm">Browse Files</button>
                 <input type="file" id="document-upload-input" multiple accept=".pdf,.png,.jpg,.jpeg" style="display: none;" />
@@ -509,7 +528,7 @@
                     <span id="rev-dti-badge" class="badge badge-success">22% (Optimal)</span>
                   </div>
                   <p id="rev-dti-desc" style="font-size: 0.82rem; max-width: 400px; text-align: right; margin: 0;">
-                    Excellent debt ratio. Fast-track eligible.
+                    Optimal debt-to-income profile. Eligible for fast-track processing.
                   </p>
                 </div>
               </div>
@@ -543,8 +562,11 @@
               <button type="button" id="wizard-next-btn" class="btn btn-primary">
                 Next Step →
               </button>
-              <button type="submit" id="wizard-submit-btn" class="btn btn-primary pulse-glow" style="display: none;">
-                Submit Loan Application ✓
+              <button type="submit" id="wizard-submit-btn" class="btn btn-primary" style="display: none; align-items: center; gap: 0.5rem;">
+                <span>Submit Loan Application</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
               </button>
             </div>
 
@@ -623,66 +645,77 @@
   </div>
 
 
-  <!-- ANTI-PHISHING SECURITY CENTER MODAL -->
+  <!-- SECURITY & COMPLIANCE MODAL -->
   <div id="security-modal" class="modal-backdrop">
     <div class="modal-dialog">
       <div class="modal-header">
         <div style="display: flex; align-items: center; gap: 0.75rem;">
-          <span style="font-size: 1.5rem;">🛡️</span>
+          <div style="width: 36px; height: 36px; border-radius: var(--radius-sm); background: rgba(16, 185, 129, 0.15); display: flex; align-items: center; justify-content: center; color: var(--primary-light);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+          </div>
           <div>
-            <h3 style="font-size: 1.25rem;">Fintech Security & Scam Prevention</h3>
-            <p style="font-size: 0.82rem; color: var(--text-muted); margin: 0;">How to identify legitimate lending platforms vs. phishing scams</p>
+            <h3 style="font-size: 1.25rem;">Security Standards & Consumer Protections</h3>
+            <p style="font-size: 0.82rem; color: var(--text-muted); margin: 0;">Regulated digital lending protocols and cryptographic verification</p>
           </div>
         </div>
         <button type="button" id="security-modal-close" class="modal-close">&times;</button>
       </div>
       <div class="modal-body">
-        <div style="background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.3); border-radius: var(--radius-md); padding: 1rem 1.25rem; margin-bottom: 1.5rem;">
-          <h4 style="color: #F87171; font-size: 0.95rem; margin-bottom: 0.35rem;">⚠️ Red Flags of Loan Scams & Phishing Websites</h4>
-          <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5;">
-            Fraudulent websites often lure victims with promises of instant loans, then ask for a <strong>4-digit banking PIN</strong>, ATM PIN, or online banking password under the guise of "verifying internet banking." They then steal these credentials to drain victim accounts.
+        <div style="background: rgba(239, 68, 68, 0.08); border: 1px solid rgba(239, 68, 68, 0.25); border-radius: var(--radius-md); padding: 1rem 1.25rem; margin-bottom: 1.5rem;">
+          <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.35rem;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F87171" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/>
+              <line x1="12" y1="9" x2="12" y2="13"/>
+              <line x1="12" y1="17" x2="12.01" y2="17"/>
+            </svg>
+            <h4 style="color: #F87171; font-size: 0.95rem; margin: 0;">Consumer Notice on Account Security</h4>
+          </div>
+          <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5; margin: 0;">
+            SmartLoan will never request your 4-digit ATM PIN, online banking password, or multi-factor SMS codes. Legitimate loan disbursement occurs strictly through automated ACH rails requiring only checking routing and account numbers.
           </p>
         </div>
 
-        <h4 style="margin-bottom: 0.75rem; font-size: 1rem;">Legitimate vs. Fraudulent Lenders</h4>
+        <h4 style="margin-bottom: 0.75rem; font-size: 1rem;">Institutional Safeguards</h4>
         <div style="border: 1px solid var(--border-subtle); border-radius: var(--radius-md); overflow: hidden; margin-bottom: 1.5rem;">
           <table class="amort-table" style="font-size: 0.84rem;">
             <thead>
               <tr>
-                <th>Aspect</th>
-                <th>Legitimate Lender (SmartLoan)</th>
-                <th style="color: #F87171;">Phishing Website</th>
+                <th>Standard</th>
+                <th>SmartLoan Protocol</th>
+                <th style="color: var(--text-muted);">Unregulated Lenders</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td><strong>Banking Credentials</strong></td>
-                <td style="color: var(--primary-light);">Account # only for deposit</td>
-                <td style="color: #F87171;">Asks for Banking PIN / Password</td>
+                <td style="color: var(--primary-light);">Routing & Account # for ACH only</td>
+                <td style="color: #F87171;">Requests online banking PIN/passwords</td>
               </tr>
               <tr>
-                <td><strong>Disclosures</strong></td>
-                <td style="color: var(--primary-light);">Clear APR and repayment schedule</td>
-                <td style="color: #F87171;">Hidden fees, no terms breakdown</td>
+                <td><strong>Transparency</strong></td>
+                <td style="color: var(--primary-light);">Full APR & amortization disclosures</td>
+                <td style="color: #F87171;">Undisclosed fees, opaque schedules</td>
               </tr>
               <tr>
-                <td><strong>Data Transmission</strong></td>
-                <td style="color: var(--primary-light);">Encrypted SOC-2 API backend</td>
-                <td style="color: #F87171;">Exfiltrates to Telegram / Webhooks</td>
+                <td><strong>Data Encryption</strong></td>
+                <td style="color: var(--primary-light);">End-to-end 256-bit TLS & AES rest</td>
+                <td style="color: #F87171;">Unencrypted or insecure transmission</td>
               </tr>
               <tr>
-                <td><strong>Credit Verification</strong></td>
-                <td style="color: var(--primary-light);">Regulated Credit Bureau / KYC</td>
-                <td style="color: #F87171;">Fake approval without underwriting</td>
+                <td><strong>Underwriting Rails</strong></td>
+                <td style="color: var(--primary-light);">Automated credit bureau verification</td>
+                <td style="color: #F87171;">No institutional compliance or KYC</td>
               </tr>
             </tbody>
           </table>
         </div>
 
         <div style="background: rgba(16, 185, 129, 0.06); border: 1px solid rgba(16, 185, 129, 0.25); border-radius: var(--radius-md); padding: 1rem 1.25rem;">
-          <h4 style="color: var(--primary-light); font-size: 0.95rem; margin-bottom: 0.25rem;">SmartLoan Security Pledge</h4>
+          <h4 style="color: var(--primary-light); font-size: 0.95rem; margin-bottom: 0.25rem;">Security Commitment</h4>
           <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 0;">
-            SmartLoan will never call, text, or email you requesting your one-time passwords (OTP) or banking credentials. When applying, ensure the browser address bar matches your verified official domain.
+            All data handling complies with SOC 2 Type II guidelines. SmartLoan representatives will never initiate unsolicited contact to request verification codes or sensitive banking credentials.
           </p>
         </div>
       </div>
@@ -707,7 +740,7 @@
             </div>
           </div>
           <p style="font-size: 0.85rem; line-height: 1.6; max-width: 320px;">
-            Empowering consumers and small businesses with fair, transparent, and algorithmic digital lending solutions.
+            Empowering consumers and businesses with fair, transparent, and algorithmic digital lending solutions.
           </p>
         </div>
 
@@ -715,7 +748,7 @@
           <h4>Loan Products</h4>
           <ul>
             <li><a href="#home">Personal Loans</a></li>
-            <li><a href="#home">Business Loans</a></li>
+            <li><a href="#home">Business Financing</a></li>
             <li><a href="#home">Auto Financing</a></li>
             <li><a href="#home">Home Improvement</a></li>
           </ul>
@@ -726,8 +759,8 @@
           <ul>
             <li><a href="#apply">Apply Online</a></li>
             <li><a href="#dashboard">Track Application</a></li>
-            <li><a href="#" data-open-security>Security Center</a></li>
-            <li><a href="#" data-open-security>Anti-Phishing Guide</a></li>
+            <li><a href="#" data-open-security>Security Standards</a></li>
+            <li><a href="#" data-open-security>Consumer Protection</a></li>
           </ul>
         </div>
 
@@ -737,8 +770,18 @@
             256-Bit TLS Encryption • Regulated Digital Lending Protocol • SOC 2 Type II Certified
           </p>
           <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-            <span class="badge badge-success">✓ FDIC Insured Partner Rails</span>
-            <span class="badge badge-info">✓ SSL Secured</span>
+            <span class="badge badge-success" style="display: inline-flex; align-items: center; gap: 0.35rem;">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+              FDIC Insured Partner Rails
+            </span>
+            <span class="badge badge-info" style="display: inline-flex; align-items: center; gap: 0.35rem;">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+              256-Bit SSL Secured
+            </span>
           </div>
         </div>
 

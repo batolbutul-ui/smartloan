@@ -313,8 +313,12 @@ export function initWizard({ onCompleted }) {
 
     wizardCard.innerHTML = `
       <div class="submission-success-card animate-fade-in">
-        <div class="success-icon-badge">✓</div>
-        <h2>Application Submitted Securely!</h2>
+        <div class="success-icon-badge">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+        </div>
+        <h2>Application Submitted Successfully</h2>
         <p style="max-width: 500px; margin: 0.75rem auto 1.5rem;">
           Thank you, <strong>${safeName}</strong>. Your loan application has been assigned to our automated underwriting system.
         </p>
@@ -322,7 +326,10 @@ export function initWizard({ onCompleted }) {
         <div class="ref-code-display" style="cursor: pointer;" id="copy-ref-box" title="Click to Copy Reference ID">
           <span>Reference ID:</span>
           <strong>${safeId}</strong>
-          <span style="font-size: 0.85rem; color: var(--text-muted); margin-left: 0.5rem;">📋 Copy</span>
+          <span style="font-size: 0.85rem; color: var(--primary-light); margin-left: 0.5rem; display: inline-flex; align-items: center; gap: 0.25rem;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+            Copy ID
+          </span>
         </div>
 
         <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 1.5rem; max-width: 480px; margin: 0 auto 2rem; text-align: left;">
